@@ -21,13 +21,26 @@ func TestGetInstanceByLazyModeWithBug(t *testing.T) {
 	time.Sleep(5 * time.Second)
 }
 
-func TestGetInstanceByLazyModeWithFix(t *testing.T) {
+func TestGetInstanceByLazyModeWithSyncOnce(t *testing.T) {
 	ctx := context.Background()
 	cnt := 10
 
 	for i := 0; i < cnt; i++ {
 		go func() {
-			instance := GetInstanceByLazyModeWithFix(ctx)
+			instance := GetInstanceByLazyModeWithSyncOnce(ctx)
+			fmt.Printf("%v\n", unsafe.Pointer(instance))
+		}()
+	}
+	time.Sleep(5 * time.Second)
+}
+
+func TestGetInstanceByLazyModeWithSyncMutex(t *testing.T) {
+	ctx := context.Background()
+	cnt := 10
+
+	for i := 0; i < cnt; i++ {
+		go func() {
+			instance := GetInstanceByLazyModeWithSyncMutex(ctx)
 			fmt.Printf("%v\n", unsafe.Pointer(instance))
 		}()
 	}
