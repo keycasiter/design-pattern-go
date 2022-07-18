@@ -5,8 +5,6 @@
 
 [简单工厂模式](doc/build_pattern/简单工厂模式.md)
 
-[工厂方法模式](doc/build_pattern/工厂方法模式.md)
-
 [抽象工厂模式](doc/build_pattern/抽象工厂模式.md)
 
 [创建者模式](doc/build_pattern/创建者模式.md)
